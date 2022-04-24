@@ -1,0 +1,21 @@
+@import './tracks';
+@import "./header";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #121212;
+    min-height: 100vh;
+}

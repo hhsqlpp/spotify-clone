@@ -1,0 +1,27 @@
+.header {
+    margin-top: 20px;
+
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    &-logo {
+        height: 100%;
+        margin-right: 200px;
+    }
+
+    &-nav {
+        display: flex;
+        column-gap: 50px;
+
+        &__item {
+            font-size: 20px;
+
+            &:hover {
+                text-decoration: underline;
+                color: #d4d3d3;
+            }
+        }
+    }
+}

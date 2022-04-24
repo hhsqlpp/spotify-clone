@@ -1,0 +1,56 @@
+.tracks {
+    margin-top: 100px;
+
+    &__title {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        &__item {
+            display: grid;
+            grid-template-columns: 30px 50px 400px 250px 200px 200px 10px;
+            align-items: center;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            height: 56px;
+            transition: all 0.2s;
+            padding: 0px 15px;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+            }
+
+            &-name__artist,
+            &-album {
+                transition: all 0.2s;
+
+                &:hover {
+                    color: #d4d3d3;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+
+            &-state {
+                width: 40px;
+                height: 40px;
+
+                &:hover {
+                    opacity: 0.8;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
