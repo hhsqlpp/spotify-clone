@@ -1,12 +1,15 @@
+import { Album } from './../album/schemas/album.schema';
 import { FileService, FileType } from './../file/file.service';
 import { Comment, CommentDocument } from './schemas/comment.schema';
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Track, TrackDocument } from './schemas/track.schema';
 import { Model } from 'mongoose';
 import { CreateTrackDto } from './dto/create-track.dto';
 import { ObjectId } from 'mongoose';
 import { CreateCommentDto } from './dto/create-comment.dto';
+import { AlbumDocument } from '../album/schemas/album.schema';
+import { AlbumService } from '../album/album.service';
 
 @Injectable()
 export class TrackSevice {
@@ -14,6 +17,7 @@ export class TrackSevice {
     @InjectModel(Track.name) private trackModel: Model<TrackDocument>,
     @InjectModel(Comment.name) private commentModel: Model<CommentDocument>,
     private fileService: FileService,
+    private albumService: AlbumService,
   ) {}
 
   async create(dto: CreateTrackDto, picture, audio): Promise<Track> {
@@ -25,8 +29,7 @@ export class TrackSevice {
       picture: imagePath,
       audio: audioPath,
     });
-
-    console.log(track);
+    const album = await this.albumService.getAlbum(dto.album);
 
     return track;
   }
