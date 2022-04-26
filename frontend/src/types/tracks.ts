@@ -7,7 +7,7 @@ export interface ITrack {
     lyrics: string;
     audio: string;
     picture: string;
-    listens: string;
+    listens: number;
     comments: string;
 }
 
@@ -17,9 +17,9 @@ export interface ITracksState {
 }
 
 export enum TracksActionTypes {
-    SET_TRACKS = 'SET_TRACKS',
-    SET_LOADING_START = 'SET_LOADING_START',
-    SET_LOADING_END = 'SET_LOADING_START',
+    SET_TRACKS = 'TRACKS/SET_TRACKS',
+    SET_LOADING_START = 'TRACKS/SET_LOADING_START',
+    SET_LOADING_END = 'TRACKS/SET_LOADING_END',
 }
 
 export interface setTracks {
@@ -35,4 +35,4 @@ export interface setLoadindEndTracks {
     type: TracksActionTypes.SET_LOADING_END;
 }
 
-export type TracksAction = setTracks | setLoadindEndTracks | setLoadindEndTracks;
+export type TracksAction = setTracks | setLoadindStartTracks | setLoadindEndTracks;

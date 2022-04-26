@@ -11,7 +11,7 @@ const initialState: ITrackState = {
         lyrics: '',
         audio: '',
         picture: '',
-        listens: '',
+        listens: 0,
         comments: '',
     },
     loading: false,

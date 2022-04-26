@@ -6,9 +6,9 @@ export interface ITrackState {
 }
 
 export enum TrackActionTypes {
-    SET_TRACK = 'SET_TRACK',
-    SET_LOADING_START = 'SET_LOADING_START',
-    SET_LOADING_END = 'SET_LOADING_START',
+    SET_TRACK = 'TRACK/SET_TRACK',
+    SET_LOADING_START = 'TRACK/SET_LOADING_START',
+    SET_LOADING_END = 'TRACK/SET_LOADING_END',
 }
 
 export interface setTrack {
@@ -24,4 +24,4 @@ export interface setLoadindEndTrack {
     type: TrackActionTypes.SET_LOADING_END;
 }
 
-export type TrackAction = setTrack | setLoadindEndTrack | setLoadindEndTrack;
+export type TrackAction = setTrack | setLoadindStartTrack | setLoadindEndTrack;

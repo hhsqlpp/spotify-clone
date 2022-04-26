@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FC, useEffect, useState } from 'react';
+import { Link, useLocation, useRoutes } from 'react-router-dom';
 import Logo from '../assets/spotify-logo.svg';
 
 const links = [
@@ -9,6 +9,15 @@ const links = [
 ];
 
 const Header: FC = () => {
+    const [currentPage, setCurrentPage] = useState<string>(links[0].name);
+    const location = useLocation();
+
+    useEffect(() => {
+        const page = location.pathname;
+
+        setCurrentPage(page);
+    }, [location]);
+
     return (
         <header className='header'>
             <div className='container'>
@@ -18,7 +27,12 @@ const Header: FC = () => {
                 <nav className='header-nav'>
                     {links.map((link, i) => {
                         return (
-                            <Link className='header-nav__item' to={link.uri} key={i}>
+                            <Link
+                                className={`header-nav__item ${
+                                    currentPage === link.uri && 'header-nav__item__active'
+                                }`}
+                                to={link.uri}
+                                key={i}>
                                 {link.name}
                             </Link>
                         );
