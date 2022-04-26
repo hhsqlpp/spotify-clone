@@ -2,7 +2,8 @@ export interface ITrack {
     _id: number;
     name: string;
     artist: string;
-    album: string;
+    album_name: string;
+    album_id: string;
     lyrics: string;
     audio: string;
     picture: string;

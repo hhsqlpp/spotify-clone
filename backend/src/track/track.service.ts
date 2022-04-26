@@ -22,16 +22,19 @@ export class TrackSevice {
   async create(dto: CreateTrackDto, picture, audio): Promise<Track> {
     const audioPath = this.fileService.createFile(FileType.AUDIO, audio);
     const imagePath = this.fileService.createFile(FileType.IMAGE, picture);
+
+    const album = await this.albumModel.findById(dto.album_id);
+
     const track = await this.trackModel.create({
       ...dto,
       listens: 0,
       picture: imagePath,
       audio: audioPath,
+      album_name: album.name,
     });
-    const album = await this.albumModel.findById(dto.album); 
 
     if (album) {
-      album.tracks.push(track._id);
+      album.tracks.push(track);
       album.save();
     }
 

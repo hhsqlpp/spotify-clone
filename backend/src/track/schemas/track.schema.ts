@@ -17,8 +17,11 @@ export class Track {
   @Prop()
   artist: string;
 
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Album' }] })
-  album: Album;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Album' })
+  album_id: Album;
+
+  @Prop()
+  album_name: string;
 
   @Prop()
   lyrics: string;

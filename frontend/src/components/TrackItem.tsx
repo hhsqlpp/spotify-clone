@@ -20,7 +20,9 @@ const TrackItem: FC<IProps> = ({ track, number, active }) => {
                     <p className='tracks-list__item-name__title'>{track.name}</p>
                     <p className='tracks-list__item-name__artist'>{track.artist}</p>
                 </div>
-                <p className='tracks-list__item-album'>True Love</p>
+                <p className='tracks-list__item-album'>
+                    <Link to={`/album/${track.album_id}`}>{track.album_name}</Link>
+                </p>
                 <p className='tracks-list__item-listens'>{track.listens}</p>
                 <p className='tracks-list__item-time'>3:48</p>
                 <span className='tracks-list__item-state'>

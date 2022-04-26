@@ -4,5 +4,5 @@ export class CreateTrackDto {
   readonly name: string;
   readonly artist: string;
   readonly lyrics: string;
-  readonly album: ObjectId;
+  readonly album_id: ObjectId;
 }
