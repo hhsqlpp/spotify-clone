@@ -23,7 +23,7 @@ export class AlbumController {
   @Post()
   @UseInterceptors(FileFieldsInterceptor([{ name: 'picture', maxCount: 1 }]))
   createAlbum(@Body() dto: CreateAlbumDto, @UploadedFiles() files) {
-    return this.albumService.createAlbum(dto, files.picture);
+    return this.albumService.createAlbum(dto, files.picture[0]);
   }
 
   @Get(':id')

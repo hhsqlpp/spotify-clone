@@ -11,10 +11,10 @@ import { AlbumModule } from '../album/album.module';
   imports: [
     MongooseModule.forFeature([{ name: Track.name, schema: TrackSchema }]),
     MongooseModule.forFeature([{ name: Comment.name, schema: CommentSchema }]),
-    AlbumModule,
-    forwardRef(() => AlbumModule),
+    AlbumModule
   ],
   controllers: [TrackController],
   providers: [TrackSevice, FileService],
+  exports: [TrackSevice, MongooseModule],
 })
 export class TrackModule {}

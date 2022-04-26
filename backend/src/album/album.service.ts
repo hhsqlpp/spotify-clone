@@ -31,7 +31,7 @@ export class AlbumService {
   }
 
   async getAlbum(id): Promise<Album> {
-    const album = await this.albumModel.findById(id);
+    const album = await this.albumModel.findById(id).populate('tracks');
 
     return album;
   }
