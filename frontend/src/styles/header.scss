@@ -20,11 +20,11 @@
 
             &:hover {
                 text-decoration: underline;
-                color: #1fd760;
+                color: #1fd760 !important;
             }
 
             &__active {
-                color: #1fd760;
+                color: #1fd760 !important;
             }
         }
     }

@@ -1,13 +1,14 @@
 @import './tracks';
 @import './header';
 @import './ablums';
+@import './player';
 
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    color: #b3b3b3;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #b3b3b3 !important;
     text-decoration: none;
 }
 
@@ -17,6 +18,11 @@
 }
 
 body {
-    background-color: #121212;
+    background-color: #121212 !important;
     min-height: 100vh;
+}
+
+p {
+    margin: 0px;
+    margin-bottom: 0px !important;
 }

@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Header } from './components';
 import { Tracks, Track, Albums, Album } from './pages';
+import { Player } from "./components";
 
 const App: FC = () => {
     return (
@@ -13,6 +14,7 @@ const App: FC = () => {
                 <Route path='/tracks/:id' element={<Track />} />
                 <Route path='/albums/:id' element={<Album />} />
             </Routes>
+            <Player />
         </Router>
     );
 };
