@@ -1,21 +1,17 @@
 .player {
-    position: static !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #181818;
+    height: 130px;
+    padding: 0px 16px;
+    margin-top: 100px;
 
-    .ant-drawer-body {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #181818;
-    }
-
-    .ant-drawer-content-wrapper {
-        height: 130px !important;
-    }
-
-    .ant-drawer-header,
-    .ant-drawer-mask {
-        display: none;
-        pointer-events: all;
+    &__active {
+        position: sticky;
+        bottom: 0px;
+        left: 0;
+        right: 0;
     }
 
     &-left {
@@ -24,7 +20,7 @@
 
         img {
             width: 56px;
-            header: 56px;
+            height: 56px;
             object-fit: cover;
         }
 
@@ -32,7 +28,7 @@
             margin-left: 16px;
 
             &-name {
-                font-weigth: 700 !important;
+                font-weight: 700 !important;
                 color: #fff !important;
             }
         }

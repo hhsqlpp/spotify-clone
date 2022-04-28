@@ -33,7 +33,7 @@ let TrackSevice = class TrackSevice {
         const album = await this.albumModel.findById(dto.album_id);
         const track = await this.trackModel.create(Object.assign(Object.assign({}, dto), { listens: 0, picture: imagePath, audio: audioPath, album_name: album.name }));
         if (album) {
-            album.tracks.push(track);
+            album.tracks.push(track._id);
             album.save();
         }
         return track;

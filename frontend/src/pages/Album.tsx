@@ -5,17 +5,29 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import fetchAlbum from '../redux/actions/album';
 import TrackItem from '../components/TrackItem';
 import UserIcon from '../assets/user.png';
+import { useState } from 'react';
 
 const Album: FC = () => {
     const { id } = useParams();
     const { album, loading } = useTypedSelector((state) => state.album);
     const dispatch = useDispatch();
+    const [totalListens, setTotalListens] = useState<number>(0);
 
     useEffect(() => {
         if (id) {
             dispatch(fetchAlbum(id) as any);
         }
     }, [id]);
+
+    useEffect(() => {
+        let listens: number = 0;
+
+        album.tracks.forEach((track) => {
+            listens += track.listens;
+        });
+
+        setTotalListens(listens);
+    }, [album]);
 
     return (
         <>
@@ -35,6 +47,7 @@ const Album: FC = () => {
                                     <img src={UserIcon} alt='' />
                                     <span>{album.artist}</span>{' '}
                                     <span>{album.tracks.length} треков</span>
+                                    <span>{totalListens} прослушиваний</span>
                                 </div>
                             </div>
                         </div>

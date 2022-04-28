@@ -10,7 +10,7 @@ export class Album {
   @Prop()
   name: string;
 
-  @Prop()
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Track' }] })
   tracks: Track[];
 
   @Prop()

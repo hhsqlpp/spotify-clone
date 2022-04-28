@@ -34,7 +34,7 @@ export class TrackSevice {
     });
 
     if (album) {
-      album.tracks.push(track);
+      album.tracks.push(track._id);
       album.save();
     }
 
@@ -74,6 +74,7 @@ export class TrackSevice {
 
   async listen(id: ObjectId) {
     const track = await this.trackModel.findById(id);
+
     track.listens += 1;
     track.save();
   }
