@@ -6,12 +6,14 @@ import fetchAlbum from '../redux/actions/album';
 import TrackItem from '../components/TrackItem';
 import UserIcon from '../assets/user.png';
 import { useState } from 'react';
+import { AddTrack } from '../components';
 
 const Album: FC = () => {
     const { id } = useParams();
     const { album, loading } = useTypedSelector((state) => state.album);
     const dispatch = useDispatch();
     const [totalListens, setTotalListens] = useState<number>(0);
+    const [modalVisible, setModalVisible] = useState<boolean>(false);
 
     useEffect(() => {
         if (id) {
@@ -35,6 +37,11 @@ const Album: FC = () => {
                 <div className='album-page'>
                     <div className='container'>
                         <h1 className='album-page__title'>Страница Альбома</h1>
+                        <button
+                            className='album-page__btn'
+                            onClick={() => setModalVisible(!modalVisible)}>
+                            Добавить трек
+                        </button>
                         <div className='album-page-info'>
                             <img
                                 className='album-page-info__photo'
@@ -65,6 +72,12 @@ const Album: FC = () => {
                             })}
                         </div>
                     </div>
+                    <AddTrack
+                        visible={modalVisible}
+                        album_id={album._id}
+                        artist={album.artist}
+                        setVisible={setModalVisible}
+                    />
                 </div>
             ) : null}
         </>

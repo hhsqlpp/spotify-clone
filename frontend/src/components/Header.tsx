@@ -3,7 +3,7 @@ import { Link, useLocation, useRoutes } from 'react-router-dom';
 import Logo from '../assets/spotify-logo.svg';
 
 const links = [
-    { name: 'Главная страница', uri: '/' },
+    { name: 'Добавить альбом', uri: '/' },
     { name: 'Треки', uri: '/tracks' },
     { name: 'Альбомы', uri: '/albums' },
 ];

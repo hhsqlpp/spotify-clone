@@ -55,9 +55,31 @@
 .album-page {
     margin-top: 100px;
 
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
     &__title {
         font-size: 36px;
         margin-bottom: 40px;
+    }
+
+    &__btn {
+        padding: 8px 0px;
+        width: 350px;
+        background-color: #1fd760;
+        color: #000 !important;
+        font-size: 22px;
+        transition: all 0.2s;
+        opacity: 0.8;
+        cursor: pointer;
+        border: none;
+        align-self: flex-end;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
     &-info {
@@ -110,5 +132,31 @@
 
     &__tracks {
         margin-bottom: 50px;
+    }
+}
+
+.add-track {
+    .create-album__form {
+        &-item {
+            width: 100%;
+
+            input {
+                border: 1px solid #000;
+                border-radius: 4px;
+                color: #000 !important;
+            }
+        }
+
+        &-btn {
+            width: 100%;
+        }
+    }
+
+    .ant-modal-content {
+        border-radius: 5px;
+    }
+
+    .ant-modal-footer {
+        display: none;
     }
 }
