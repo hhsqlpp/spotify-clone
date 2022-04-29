@@ -35,8 +35,7 @@ const TrackItem: FC<IProps> = ({ track, number, active }) => {
             <p className='tracks-list__item-album'>
                 <Link to={`/albums/${track.album_id}`}>{track.album_name}</Link>
             </p>
-            <p className='tracks-list__item-listens'>{listens}</p>
-            <p className='tracks-list__item-time'>3:48</p>
+            <p className='tracks-list__item-listens'>{listens} прослушиваний</p>
             <span className='tracks-list__item-state' onClick={play}>
                 <img src={active ? PauseImage : PlayImage} alt='' />
             </span>

@@ -10,9 +10,9 @@ import {
     setDuration,
     setVolume,
     setCurrentTime,
-    setActive,
 } from '../redux/actions/player';
 import { useDispatch } from 'react-redux';
+import moment from 'moment';
 
 let audio: any;
 
@@ -21,6 +21,8 @@ const Player: FC = () => {
         (state) => state.player,
     );
     const dispatch = useDispatch();
+    const [durationTime, setDurationTime] = useState<string>('');
+    const [currentTimeState, setCurrentTimeState] = useState<string>('');
 
     useEffect(() => {
         if (!audio) {
@@ -48,9 +50,13 @@ const Player: FC = () => {
             audio.volume = volume / 100;
             audio.onloadedmetadata = () => {
                 dispatch(setDuration(Math.ceil(audio.duration)));
+                setDurationTime(moment.utc(Math.ceil(audio.duration) * 1000).format('mm:ss'));
             };
             audio.ontimeupdate = () => {
                 dispatch(setCurrentTime(Math.ceil(audio.currentTime)));
+                setCurrentTimeState(
+                    moment.utc(Math.ceil(audio.currentTime) * 1000).format('mm:ss'),
+                );
             };
         }
     };
@@ -90,9 +96,9 @@ const Player: FC = () => {
             <div className='player-center'>
                 <img src={pause ? PlayImage : PauseImage} alt='' onClick={play} />
                 <div className='player-center__slider'>
-                    <span>{currentTime}</span>
+                    <span>{currentTimeState}</span>
                     <Slider value={currentTime} max={duration} onChange={changeCurrentTime} />
-                    <span>{duration}</span>
+                    <span>{durationTime}</span>
                 </div>
             </div>
             <div className='player-right'>
